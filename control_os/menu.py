@@ -19,14 +19,14 @@ def menu():
             case 1:
                 print("Vamos Criar uma planilha")
                 criar_planilhas()
-                action = int(input('escolha a opção\n1-Criar Planilha\n2-Add Veiculo\n3-Add OS\n4-Sair\n'))
+                action = int(input(action_input))
             case 2:
                 action_car = input("voce já criou a planilha: S ou N\n").upper()
                 match action_car:
                     case 'S':
                         print("Vamos Add um veiculo a planilha existente")
                         add_veiculo()
-                        action = int(input('escolha a opção\n1-Criar Planilha\n2-Add Veiculo\n3-Add OS\n4-Sair\n'))
+                        action = int(input(action_input))
                     case 'N':
                         print("você deve criar a planilha não se preocupe faremos isso aqui")
                         create_spreadsheet()
@@ -37,7 +37,7 @@ def menu():
                     case 'S':
                         print("Vamos Add um veiculo a planilha existente")
                         add_os()
-                        action = int(input('escolha a opção\n1-Criar Planilha\n2-Add Veiculo\n3-Add OS\n4-Sair\n'))
+                        action = int(input(action_input))
                     case 'N':
                         print("você deve criar a planilha não se preocupe faremos isso aqui")
                         create_spreadsheet()
@@ -60,6 +60,7 @@ def menu():
                             action_estoque = int(input('escolha a opção\n1-Criar Produto\n2-Saida\n3-entrada\n4-Sair\n'))
                         case 4:
                             print("Voltando ao menu inicial")
+            
 
             case 5:
                 print("fim do programa")                
