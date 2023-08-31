@@ -5,28 +5,18 @@ import os
 def create_spreadsheet():
     try:
         def data_columns_car():
-            input_columns = input('Digite as colunas que você quer ter em Carros:\nobs separe por , sem espaços:\n').upper()
-            print(input_columns)
-            list_columns = []
-            print(list_columns)
-            columns = input_columns.split(',')
-            print(columns)
-            for data in columns:
-                print(data)
-                list_columns.append(data)
+           
+            list_columns = ['DATA', 'MODELO', 'MARCA', 'PLACA']
             columns_cars = list_columns
-            print(columns_cars)
             return columns_cars
 
         def data_columns_os():
-            input_columns = input('Digite as colunas que você quer ter em Ordem de serviço:\nobs separe por , sem espaços:\n').upper()
-            list_columns = []
-            columns = input_columns.split(',')
-            for data in columns:
-                list_columns.append(data)
-            columns_os = list_columns
-            return columns_os
-
+            list_columns = ['DATA', 'NUM_OS', 'PLACA', 'VALOR',
+                            'REVITALIZAÇÃO DO MOTOR', 'FILTRO DE AR',
+                            'BATERIA', 'MODELO', 'ABNER', 'FABIANO',
+                            'LEANDRO', 'MAZINHO', 'VAGNER']
+            columns_OS = list_columns
+            return columns_OS
         name_spreadsheet = input("nome da planilha: ")
         if os.path.isfile(f'{name_spreadsheet}.xlsx'):
             print("Uma planilha com esse nome já existe.")
@@ -105,12 +95,12 @@ def data_os():
     print('Dados da OS')
     data_os = input('Data: ')
     num_os = int(input('Numero da OS: '))
-    plate_car = input('Placa do Veiculo: ')
+    plate_car = input('Placa do Veiculo: ').upper()
     value_os = int(input('Valor da OS: '))
     revitalization = int(input('Valor da Revitalização do Motor: '))
     filter_cabine = int(input('Valor do filtro: '))
     baterry = int(input('Valor da Bateria: '))
-    model_baterry = input('Modelo da Bateria: ').upper()
+    model_baterry = input('Modelo da Bateria:\n1-').upper()
     abner = int(input("Valor Abner: "))
     fabiano = int(input("Valor Fabiano: "))
     leandro = int(input("Valor Leandro: "))
