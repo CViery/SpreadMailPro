@@ -1,8 +1,14 @@
 from spreadsheets import create_spreadsheet, data_car, data_os
-from estoque import cadastrarProduto, add_entrada, add_saida
+from estoque.menu_stock import menu_stock
 from frases import action_input
+import sys
+import os
 
+# Obtém o diretório do módulo menu_stock.py
+module_directory = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "estoque")
 
+# Adiciona o diretório ao caminho de pesquisa
+sys.path.append(module_directory)
 def menu():
     def criar_planilhas():
         create_spreadsheet()
@@ -43,23 +49,7 @@ def menu():
                         create_spreadsheet()
                         action_os = input("voce já criou a planilha: S ou N\n").upper()
             case 4:
-                action_estoque = int(input('escolha a opção\n1-Criar Produto\n2-Saida\n3-entrada\n4-Sair\n'))
-                while action_estoque != 4:
-                    match action_estoque:
-                        case 1: 
-                            cadastrarProduto()
-                            print("Produto Cadastrado")
-                            action_estoque = int(input('escolha a opção\n1-Criar Produto\n2-Saida\n3-entrada\n4-Sair\n'))
-                        case 2:
-                            add_saida()
-                            print("Estoque Atualizado")
-                            action_estoque = int(input('escolha a opção\n1-Criar Produto\n2-Saida\n3-entrada\n4-Sair\n'))
-                        case 3: 
-                            add_entrada()
-                            print("Estoque Atualizado")
-                            action_estoque = int(input('escolha a opção\n1-Criar Produto\n2-Saida\n3-entrada\n4-Sair\n'))
-                        case 4:
-                            print("Voltando ao menu inicial")
+                stock = menu_stock()
             
 
             case 5:
